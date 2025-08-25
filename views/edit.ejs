@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Task ✏️</title>
+
+  <!-- Preconnect to Google Fonts for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Using Quicksand font for calm, clean text -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+
+  <!-- Link to our main stylesheet -->
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Header with a gentle encouragement message -->
+  <header>
+    <h1>Softly moving forward, one step at a time 🌸</h1>
+  </header>
+
+  <main class="container">
+    <h2>Edit Task</h2>
+
+    <!-- Small encouraging line to remind user to take their time -->
+    <p style="margin-top:0.25rem; color:#666;">Take a moment, then save gently 🌱</p>
+
+    <!-- 
+      Note: The server sends { todo, id } to this template.
+      We use these variables here to show current task data and handle the update request.
+    -->
+    <form action="/edit/<%= id %>" method="POST" class="task-form">
+      <!-- Pre-fill the input with current task text, and require it so it's not empty -->
+      <input type="text" name="taskText" value="<%= todo.text %>" required />
+
+      <!-- Dropdown to select priority, with the current priority selected by default -->
+      <select name="priority">
+        <option value="High" <%= todo.priority === 'High' ? 'selected' : '' %>>High 🔥</option>
+        <option value="Medium" <%= todo.priority === 'Medium' ? 'selected' : '' %>>Medium 🌼</option>
+        <option value="Low" <%= todo.priority === 'Low' ? 'selected' : '' %>>Low 🍃</option>
+      </select>
+
+      <!-- Save button with a friendly floppy disk emoji -->
+      <button type="submit">💾 Save</button>
+    </form>
+
+    <!-- Link to go back to the main list, with a gentle arrow -->
+    <a href="/" class="back-link">⬅️ Back to List</a>
+  </main>
+
+  <!-- Footer with a calm reminder and earth-tone emoji -->
+  <footer>
+    <p>Slow is beautiful, steady is strong 🍂</p>
+  </footer>
+</body>
+</html>
+
